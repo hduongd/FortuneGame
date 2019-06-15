@@ -36,12 +36,10 @@
 		</Compiler>
 		<Unit filename="include/Board.h" />
 		<Unit filename="include/Property.h" />
-		<Unit filename="include/Rent.h" />
 		<Unit filename="include/Tile.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Board.cpp" />
 		<Unit filename="src/Property.cpp" />
-		<Unit filename="src/Rent.cpp" />
 		<Unit filename="src/Tile.cpp" />
 		<Extensions>
 			<code_completion />

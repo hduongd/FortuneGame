@@ -1,11 +1,12 @@
 #include "Property.h"
+#include "Rent.h"
 #include <iostream>
 
 Property::Property(const std::string& name, unsigned action, unsigned cost,
-                   unsigned* rents, unsigned houses, unsigned house_cost):
+                   unsigned* rents, unsigned group, unsigned house_cost):
     Tile(name, action),
     m_Cost(cost),
-    m_Houses(houses),
+    m_Group(group),
     m_HouseCost(house_cost)
 {
     for (unsigned i = 0; i < RENT_SLOTS; i++)
@@ -20,6 +21,11 @@ Property::~Property()
 unsigned Property::GetNumberHouses() const
 {
     return m_Houses;
+}
+
+unsigned Property::GetGroup() const
+{
+    return m_Group;
 }
 
 unsigned Property::GetCost() const

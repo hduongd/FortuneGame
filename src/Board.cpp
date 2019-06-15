@@ -8,10 +8,9 @@ Board::Board()
      *  These represent the prices for each property as
      *  an array of integers.
      */
-    Rent katie(10, 20, 30, 50, 80, 200, 450);
-
+    unsigned katie[Property::RENT_SLOTS] = {10, 30, 50, 100, 200, 450};
     Tile* p_Go = new Tile("GO", Tile::GO);
-    Tile* p_Katie = new Property("Katie Avenue", Tile::NO_ACTION, 60, katie.GetRents());
+    Tile* p_Katie = new Property("Katie Avenue", Tile::NO_ACTION, 60, katie, 4);
     Tile* p_Null = new Tile("Null", Tile::NO_ACTION);
 
     m_Board.push_back(p_Go);
