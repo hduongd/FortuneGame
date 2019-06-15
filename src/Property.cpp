@@ -1,24 +1,28 @@
 #include "Property.h"
+#include <iostream>
 
-Property::Property(const std::string& name, unsigned int action, unsigned int cost,
-                   unsigned int* rents, unsigned int houses, unsigned int house_cost):
+Property::Property(const std::string& name, unsigned action, unsigned cost,
+                   unsigned* rents, unsigned houses, unsigned house_cost):
     Tile(name, action),
     m_Cost(cost),
     m_Houses(houses),
     m_HouseCost(house_cost)
 {
-    for (int i = 0; i < 7; i++)
+    for (unsigned i = 0; i < RENT_SLOTS; i++)
     {
         m_Rent[i] = rents[i];
     }
 }
 
-unsigned int Property::GetNumberHouses() const
+Property::~Property()
+{}
+
+unsigned Property::GetNumberHouses() const
 {
     return m_Houses;
 }
 
-unsigned int Property::GetCost() const
+unsigned Property::GetCost() const
 {
     return m_Cost;
 }
@@ -28,7 +32,27 @@ bool Property::IsMortgaged() const
     return m_IsMortgaged;
 }
 
-const unsigned int* Property::GetRentArray() const
+const unsigned* Property::GetRentArray() const
 {
     return m_Rent;
+}
+
+void Property::BuyHouse()
+{
+    m_Houses++;
+}
+
+void Property::SellHouse()
+{
+    m_Houses--;
+}
+
+void Property::Mortgage()
+{
+    m_IsMortgaged = true;
+}
+
+void Property::Unmortgage()
+{
+    m_IsMortgaged = false;
 }

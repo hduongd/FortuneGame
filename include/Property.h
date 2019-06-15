@@ -1,3 +1,5 @@
+#pragma once
+
 #include <Tile.h>
 
 #include <string>
@@ -10,13 +12,14 @@ public:
     enum rent {RENT_SINGLE, RENT_MONOPOLY, ONE_HOUSE, TWO_HOUSE, THREE_HOUSE, FOUR_HOUSE, HOTEL};
     friend std::ostream& operator<<(std::ostream& os, Property& prop);
 
-    Property(const std::string& name, unsigned int action, unsigned int cost,
-             unsigned int* rents, unsigned int houses=0, unsigned int house_cost=50);
+    Property(const std::string& name, unsigned action, unsigned cost,
+             unsigned* rents, unsigned houses=0, unsigned house_cost=50);
+    virtual ~Property();
 
     /* Getters and Setters */
-    const unsigned int* GetRentArray() const;
-    unsigned int GetCost() const;
-    unsigned int GetNumberHouses() const;
+    const unsigned* GetRentArray() const;
+    unsigned GetCost() const;
+    unsigned GetNumberHouses() const;
     bool IsMortgaged() const;
     //void TransferOwnership(const Player& player);
     void BuyHouse();
@@ -25,10 +28,10 @@ public:
     void Unmortgage();
 
 private:
-    unsigned int m_Cost;
-    unsigned int m_Houses;
-    unsigned int m_HouseCost;
+    unsigned m_Cost;
+    unsigned m_Houses;
+    unsigned m_HouseCost;
     bool m_IsMortgaged = false;
     //Player* m_pOwner;
-    unsigned int m_Rent[RENT_SLOTS];
+    unsigned* m_Rent = new unsigned[RENT_SLOTS];
 };

@@ -5,8 +5,10 @@
 class Tile
 {
 public:
-    enum actions {NO_ACTION, CHANCE, CHEST, JAIL, INCOME_TAX, LUXURY_TAX};
-    Tile(const std::string& name, unsigned int action);
+    enum actions {NO_ACTION, CHANCE, CHEST, JAIL, INCOME_TAX, LUXURY_TAX, GO};
+
+    Tile(const std::string& name, unsigned action);
+    virtual ~Tile();
 
     std::string GetName() const;
 
@@ -14,5 +16,5 @@ protected:
     std::string m_Name;
 
 private:
-    unsigned int m_Action;
+    unsigned m_Action;
 };

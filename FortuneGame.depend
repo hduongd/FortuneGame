@@ -1,19 +1,38 @@
 # depslib dependency file v1.0
-1560466736 source:/home/harvey/Documents/projects/FortuneGame/main.cpp
+1560556912 source:/home/harvey/Documents/projects/FortuneGame/main.cpp
 	<iostream>
 	"Tile.h"
 	"Property.h"
+	"Board.h"
 
-1560466844 /home/harvey/Documents/projects/FortuneGame/include/Property.h
+1560556936 /home/harvey/Documents/projects/FortuneGame/include/Property.h
 	<Tile.h>
 	<string>
 
-1560466862 source:/home/harvey/Documents/projects/FortuneGame/src/Property.cpp
+1560563632 source:/home/harvey/Documents/projects/FortuneGame/src/Property.cpp
 	"Property.h"
+	<iostream>
 
-1560466651 /home/harvey/Documents/projects/FortuneGame/include/Tile.h
+1560556201 /home/harvey/Documents/projects/FortuneGame/include/Tile.h
 	<string>
 
-1560466714 source:/home/harvey/Documents/projects/FortuneGame/src/Tile.cpp
+1560563614 source:/home/harvey/Documents/projects/FortuneGame/src/Tile.cpp
 	"Tile.h"
+	<iostream>
+
+1560563622 source:/home/harvey/Documents/projects/FortuneGame/src/Board.cpp
+	"Board.h"
+	"Rent.h"
+	<iostream>
+
+1560553898 /home/harvey/Documents/projects/FortuneGame/include/Board.h
+	"Tile.h"
+	"Property.h"
+	<vector>
+
+1560563464 /home/harvey/Documents/projects/FortuneGame/include/Rent.h
+
+1560563470 source:/home/harvey/Documents/projects/FortuneGame/src/Rent.cpp
+	"Board.h"
+	"Rent.h"
 
