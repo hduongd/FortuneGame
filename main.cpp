@@ -10,20 +10,16 @@ ostream& operator<<(ostream& os, Property& prop);
 
 int main()
 {
-    unsigned r[Property::RENT_SLOTS] = {10, 30, 50, 100, 200, 500};
-    Property p("Ventnor Avenue", Tile::NO_ACTION, 300, r, 5);
-    std::cout << p << std::endl;
-
-    Property* pointerToProperty = new Property("Harvey Lane", Tile::NO_ACTION, 500, r, 7);
-    std::cout << *pointerToProperty << std::endl;
-
     Board gameBoard;
     Tile* pTile = gameBoard.GetTileInPosition(1);
+    Tile* pTile2 = gameBoard.GetTileInPosition(3);
     Property* pProp = static_cast<Property*>(pTile);
+    Property* pProp2 = static_cast<Property*>(pTile2);
 
     pProp->Mortgage();
 
     std::cout << *pProp << std::endl;
+    std::cout << *pProp2 << std::endl;
     return 0;
 }
 
