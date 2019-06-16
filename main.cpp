@@ -1,8 +1,7 @@
 #include <iostream>
 #include <iomanip>
-#include "Tile.h"
-#include "Property.h"
-#include "Board.h"
+#include "include/Property.h"
+#include "include/Board.h"
 
 using std::string;
 using std::ostream;
@@ -11,7 +10,6 @@ ostream& operator<<(ostream& os, Property& prop);
 
 int main()
 {
-    Tile t("Luxury Tax", Tile::LUXURY_TAX);
     unsigned r[Property::RENT_SLOTS] = {10, 30, 50, 100, 200, 500};
     Property p("Ventnor Avenue", Tile::NO_ACTION, 300, r, 5);
     std::cout << p << std::endl;

@@ -1,4 +1,4 @@
 bin/
-FortuneGame.cbp
-FortuneGame.depend
-FortuneGame.layout
+compile_commands.json
+*.o
+fortune

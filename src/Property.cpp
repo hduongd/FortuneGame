@@ -1,5 +1,4 @@
-#include "Property.h"
-#include "Rent.h"
+#include "../include/Property.h"
 #include <iostream>
 
 Property::Property(const std::string& name, unsigned action, unsigned cost,

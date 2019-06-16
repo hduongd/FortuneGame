@@ -1,5 +1,4 @@
-#include "Board.h"
-#include "Rent.h"
+#include "../include/Board.h"
 #include <iostream>
 Board::Board()
 {
@@ -28,8 +27,6 @@ Board::Board()
     unsigned tile_blue_high[Property::RENT_SLOTS]   = {50, 200, 600, 1400, 1700, 2000};
     unsigned tile_railroad[Property::RENT_SLOTS]    = {25,   0,   0,    0,    0,    0};
 
-    const unsigned BROWN_COST = 0;
-
     /*
      *  Now the tiles will be added to the vector in order
      *  according to the Monopoly board
@@ -37,6 +34,44 @@ Board::Board()
 
     m_Board.push_back(new Tile("GO", Tile::GO));
     m_Board.push_back(new Property("Andy Avenue", Tile::NO_ACTION, 60, tile_brown_low, 0));
+    m_Board.push_back(new Tile("Community Chest", Tile::CHEST));
+    m_Board.push_back(new Property("Evan Street", Tile::NO_ACTION, 60, tile_brown_high, 0));
+    m_Board.push_back(new Tile("Income Tax", Tile::INCOME_TAX));
+    m_Board.push_back(new Property("Byrnesville Depot", Tile::NO_ACTION, 200, tile_railroad, 8));
+    m_Board.push_back(new Property("Vista View Park", Tile::NO_ACTION, 100, tile_lblue_low, 1));
+    m_Board.push_back(new Tile("Chance", Tile::CHANCE));
+    m_Board.push_back(new Property("Nicollet Avenue", Tile::NO_ACTION, 100, tile_lblue_low, 1));
+    m_Board.push_back(new Property("Highway 13", Tile::NO_ACTION, 120, tile_lblue_high, 1));
+    m_Board.push_back(new Tile("Just Visiting/Jail", Tile::NO_ACTION));
+    m_Board.push_back(new Property("Unicorn Path", Tile::NO_ACTION, 140, tile_pink_low, 2));
+    m_Board.push_back(new Tile("Nuclear Power", Tile::UTILITY));
+    m_Board.push_back(new Property("Dragon Street", Tile::NO_ACTION, 140, tile_pink_low, 2));
+    m_Board.push_back(new Property("Troll Lane", Tile::NO_ACTION, 160, tile_pink_high, 2));
+    m_Board.push_back(new Property("Great Station", Tile::NO_ACTION, 200, tile_railroad, 8));
+    m_Board.push_back(new Property("Nvidia Way", Tile::NO_ACTION, 180, tile_orange_low, 3));
+    m_Board.push_back(new Tile("Community Chest", Tile::CHEST));
+    m_Board.push_back(new Property("Dragon Street", Tile::NO_ACTION, 180, tile_orange_low, 3));
+    m_Board.push_back(new Property("Graphics Boulevard", Tile::NO_ACTION, 200, tile_orange_high, 3));
+    m_Board.push_back(new Tile("Free Parking", Tile::NO_ACTION));
+    m_Board.push_back(new Property("Katie Lane", Tile::NO_ACTION, 220, tile_red_low, 4));
+    m_Board.push_back(new Tile("Chance", Tile::CHANCE));
+    m_Board.push_back(new Property("Artist's Corner", Tile::NO_ACTION, 220, tile_red_low, 4));
+    m_Board.push_back(new Property("Digital Way", Tile::NO_ACTION, 240, tile_red_high, 4));
+    m_Board.push_back(new Property("Manifest Destiny", Tile::NO_ACTION, 200, tile_railroad, 8));
+    m_Board.push_back(new Property("Vermillion Avenue", Tile::NO_ACTION, 260, tile_yellow_low, 5));
+    m_Board.push_back(new Property("Maroon Way", Tile::NO_ACTION, 260, tile_yellow_low, 5));
+    m_Board.push_back(new Tile("Solar Energy", Tile::UTILITY));
+    m_Board.push_back(new Property("Yellow Street", Tile::NO_ACTION, 280, tile_yellow_high, 5));
+    m_Board.push_back(new Tile("Go to Jail", Tile::JAIL));
+    m_Board.push_back(new Property("Baby Court", Tile::NO_ACTION, 280, tile_green_low, 6));
+    m_Board.push_back(new Property("Tom Street", Tile::NO_ACTION, 280, tile_green_low, 6));
+    m_Board.push_back(new Tile("Community Chest", Tile::CHEST));
+    m_Board.push_back(new Property("Neil Boulevard", Tile::NO_ACTION, 300, tile_green_high, 6));
+    m_Board.push_back(new Property("New World Express", Tile::NO_ACTION, 200, tile_railroad, 8));
+    m_Board.push_back(new Tile("Chance", Tile::CHANCE));
+    m_Board.push_back(new Property("Harvey Avenue", Tile::NO_ACTION, 350, tile_blue_low, 7));
+    m_Board.push_back(new Tile("Luxury Tax", Tile::LUXURY_TAX));
+    m_Board.push_back(new Property("Byrnesville", Tile::NO_ACTION, 400, tile_blue_high, 7));
 }
 
 Board::~Board()

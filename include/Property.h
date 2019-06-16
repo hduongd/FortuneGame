@@ -1,7 +1,6 @@
 #pragma once
 
-#include <Tile.h>
-
+#include "../include/Tile.h"
 #include <string>
 
 class Property : public Tile

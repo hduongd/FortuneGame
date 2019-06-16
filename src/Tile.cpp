@@ -1,4 +1,4 @@
-#include "Tile.h"
+#include "../include/Tile.h"
 #include <iostream>
 Tile::Tile(const std::string& name, unsigned action):
     m_Name(name),
