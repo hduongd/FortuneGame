@@ -8,7 +8,6 @@ class Board
 {
 public:
     static const unsigned BOARD_SIZE = 40;
-
     Board();
     virtual ~Board();
 

@@ -3,7 +3,6 @@
 #include "include/Property.h"
 #include "include/Board.h"
 
-using std::string;
 using std::ostream;
 
 ostream& operator<<(ostream& os, Property& prop);
@@ -52,5 +51,4 @@ ostream& operator<<(ostream& os, Property& prop)
     os << std::setfill('#') << std::setw(80);
 
     return os;
-
 }
