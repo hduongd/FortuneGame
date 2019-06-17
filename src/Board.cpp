@@ -82,10 +82,6 @@ Board::~Board()
     }
 }
 
-std::vector<Tile*>& Board::GetBoardVtr()
-{
-    return m_Board;
-}
 Tile* Board::GetTileInPosition(unsigned pos)
 {
     if (pos > Board::BOARD_SIZE - 1)

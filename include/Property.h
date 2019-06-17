@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Tile.h"
-#include "GenericPlayer.h"
 #include <string>
 
 class Property : public Tile
@@ -28,9 +27,6 @@ public:
     void Mortgage();
     void Unmortgage();
 
-    GenericPlayer* GetOwner();
-    void TransferOwnership(GenericPlayer* new_owner);
-
 private:
     unsigned m_Cost;
     unsigned m_Group;
@@ -38,5 +34,4 @@ private:
     unsigned m_HouseCost;
     bool m_IsMortgaged = false;
     unsigned* m_Rent = new unsigned[RENT_SLOTS];
-    GenericPlayer* m_pOwner;
 };

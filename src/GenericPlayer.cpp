@@ -1,6 +1,4 @@
-#include "../include/Board.h"
 #include "../include/GenericPlayer.h"
-#include "../include/Property.h"
 
 GenericPlayer::GenericPlayer(std::string name, token t):
     m_Balance(1500),
@@ -12,6 +10,10 @@ GenericPlayer::GenericPlayer(std::string name, token t):
 
 GenericPlayer::~GenericPlayer() {}
 
+int GenericPlayer::GetBalance() const
+{
+    return m_Balance;
+}
 unsigned GenericPlayer::GetNumRailroads() const
 {
     return m_Railroads;
@@ -25,20 +27,15 @@ void GenericPlayer::Move(int moves)
     m_Position = (m_Position + moves) % 40;
 }
 
-bool GenericPlayer::HasMonopolyOfGroup(unsigned groupID, Board& board)
+bool GenericPlayer::HasMonopolyOfGroup(unsigned groupID)
 {
     int count = 0;
-    std::vector<Tile*>& board_vtr = board.GetBoardVtr();
-    for (auto iter = board_vtr.begin(); iter != board_vtr.end();
+    for (auto iter = m_PropsOwnedVtr.begin(); iter != m_PropsOwnedVtr.end();
             iter++)
     {
-        Property* prop = dynamic_cast<Property*>(*iter);
-        if (prop != NULL)
+        if ((*iter)->GetGroup() == groupID)
         {
-            if (prop->GetGroup() == groupID)
-                {
-                    count++;
-                }
+            count++;
         }
     }
     switch (groupID)

@@ -1,7 +1,7 @@
 #pragma once
-#include "Board.h"
 #include <string>
 #include <vector>
+#include "Property.h"
 
 class GenericPlayer
 {
@@ -11,10 +11,11 @@ public:
     GenericPlayer(std::string name, token t);
     virtual ~GenericPlayer();
     
+    int GetBalance() const;
     unsigned GetNumRailroads() const;
     unsigned GetPosition() const;
     void Move(int moves);
-    bool HasMonopolyOfGroup(unsigned groupID, Board& board);
+    bool HasMonopolyOfGroup(unsigned groupID);
     std::string GetName() const;
     token GetToken() const;
 private:
@@ -22,5 +23,6 @@ private:
     unsigned m_Railroads;
     unsigned m_Position;
     std::string m_Name;
+    std::vector<Property*> m_PropsOwnedVtr;
     token m_Token;
 };

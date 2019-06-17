@@ -1,6 +1,7 @@
 #pragma once
 
-#include "../include/Tile.h"
+#include "Tile.h"
+#include "Property.h"
 #include <vector>
 
 class Board
@@ -11,7 +12,6 @@ public:
     virtual ~Board();
 
     Tile* GetTileInPosition(unsigned pos);
-    std::vector<Tile*>& GetBoardVtr();
 private:
     std::vector<Tile*> m_Board;
 };
