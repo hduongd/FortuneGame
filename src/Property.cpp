@@ -2,12 +2,11 @@
 #include <iostream>
 
 Property::Property(const std::string& name, unsigned action, unsigned cost,
-                   unsigned* rents, unsigned group, GenericPlayer* owner, unsigned house_cost):
+                   unsigned* rents, unsigned group, unsigned house_cost):
     Tile(name, action),
     m_Cost(cost),
     m_Group(group),
-    m_HouseCost(house_cost),
-    m_pOwner(owner)
+    m_HouseCost(house_cost)
 {
     for (unsigned i = 0; i < RENT_SLOTS; i++)
     {
@@ -28,14 +27,6 @@ unsigned Property::GetGroup() const
     return m_Group;
 }
 
-GenericPlayer* Property::GetOwner()
-{
-    return m_pOwner;
-}
-bool Property::PlayerOwns(GenericPlayer* player)
-{
-    return (player == m_pOwner);
-}
 unsigned Property::GetCost() const
 {
     return m_Cost;
@@ -46,10 +37,6 @@ bool Property::IsMortgaged() const
     return m_IsMortgaged;
 }
 
-void Property::TransferOwnership(GenericPlayer* new_owner)
-{
-    m_pOwner = new_owner;
-}
 const unsigned* Property::GetRentArray() const
 {
     return m_Rent;

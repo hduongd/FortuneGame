@@ -6,5 +6,5 @@ public:
     ComputerPlayer(std::string name, GenericPlayer::token t);
     virtual ~ComputerPlayer();
 
-    void Roll();
+    void Roll(unsigned roll);
 };

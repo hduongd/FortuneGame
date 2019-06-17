@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../include/Tile.h"
-#include "../include/GenericPlayer.h"
+#include "Tile.h"
+#include "GenericPlayer.h"
 #include <string>
 
 class Property : public Tile
@@ -10,10 +10,11 @@ public:
     static const unsigned RENT_SLOTS = 6;
 
     enum rent {RENT, ONE, TWO, THREE, FOUR, HOTEL};
+    enum groups {BROWN, LBLUE, PINK, ORANGE, RED, YELLOW, GREEN, BLUE, RXR, UTIL};
     friend std::ostream& operator<<(std::ostream& os, Property& prop);
 
     Property(const std::string& name, unsigned action, unsigned cost,
-             unsigned* rents, unsigned group, GenericPlayer* owner, unsigned house_cost=50);
+             unsigned* rents, unsigned group, unsigned house_cost=50);
     virtual ~Property();
 
     /* Getters and Setters */
@@ -21,14 +22,14 @@ public:
     unsigned GetCost() const;
     unsigned GetNumberHouses() const;
     unsigned GetGroup() const;
-    GenericPlayer* GetOwner();
-    bool PlayerOwns(GenericPlayer* player);
     bool IsMortgaged() const;
-    void TransferOwnership(GenericPlayer* new_owner);
     void BuyHouse();
     void SellHouse();
     void Mortgage();
     void Unmortgage();
+
+    GenericPlayer* GetOwner();
+    void TransferOwnership(GenericPlayer* new_owner);
 
 private:
     unsigned m_Cost;
