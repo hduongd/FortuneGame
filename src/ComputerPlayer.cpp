@@ -1,8 +1,4 @@
 #include "../include/ComputerPlayer.h"
-#include "../include/Board.h"
-#include "../include/Tile.h"
-#include "../include/Property.h"
-#include <random>
 ComputerPlayer::ComputerPlayer(std::string name, GenericPlayer::token t):
     GenericPlayer(name, t)
 {}
@@ -27,9 +23,10 @@ void ComputerPlayer::Roll(unsigned roll, Board& board, GenericPlayer** player_ar
             }
         }
         const unsigned* rents = current_prop->GetRentArray();
+        // --TODO-- 
         if (!isOwned && GetBalance() > 1.5 * rents[Property::RENT])
         {
-            current_prop
+            current_prop;
         }
     }
 }
