@@ -1,0 +1,3 @@
+(A) Add house prices to rent arrays in Property.h and Board.h (update constants as well)
+(B) Figure out how to deal with player error (e.g. building houses unevenly) (perhaps changing return types
+                                                                              from void to bool to determine success)
