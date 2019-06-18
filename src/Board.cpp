@@ -9,10 +9,10 @@ Board::Board()
      *
      *  Property::RENT_SLOTS = 6
      */
-    unsigned tile_brown_low[Property::RENT_SLOTS]   = {2,   10,  30,   90,  160,  250};
-    unsigned tile_brown_high[Property::RENT_SLOTS]  = {4,   20,  60,  180,  320,  450};
-    unsigned tile_lblue_low[Property::RENT_SLOTS]   = {6,   30,  90,  270,  400,  550};
-    unsigned tile_lblue_high[Property::RENT_SLOTS]  = {8,   40, 100,  300,  450,  600};
+    unsigned tile_brown_low[Property::RENT_SLOTS]   = { 2,  10,  30,   90,  160,  250};
+    unsigned tile_brown_high[Property::RENT_SLOTS]  = { 4,  20,  60,  180,  320,  450};
+    unsigned tile_lblue_low[Property::RENT_SLOTS]   = { 6,  30,  90,  270,  400,  550};
+    unsigned tile_lblue_high[Property::RENT_SLOTS]  = { 8,  40, 100,  300,  450,  600};
     unsigned tile_pink_low[Property::RENT_SLOTS]    = {10,  50, 150,  450,  625,  750};
     unsigned tile_pink_high[Property::RENT_SLOTS]   = {12,  60, 180,  500,  700,  900};
     unsigned tile_orange_low[Property::RENT_SLOTS]  = {14,  70, 200,  550,  750,  950};
@@ -26,7 +26,7 @@ Board::Board()
     unsigned tile_blue_low[Property::RENT_SLOTS]    = {35, 175, 500, 1100, 1300, 1500};
     unsigned tile_blue_high[Property::RENT_SLOTS]   = {50, 200, 600, 1400, 1700, 2000};
     unsigned tile_railroad[Property::RENT_SLOTS]    = {25,   0,   0,    0,    0,    0};
-    unsigned tile_utility[Property::RENT_SLOTS]    = {0,   0,   0,    0,    0,    0};
+    unsigned tile_utility[Property::RENT_SLOTS]     = { 0,   0,   0,    0,    0,    0};
 
     /*
      *  Now the tiles will be added to the vector in order

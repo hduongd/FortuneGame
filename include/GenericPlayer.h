@@ -16,8 +16,15 @@ public:
     unsigned GetPosition() const;
     void Move(int moves);
     bool HasMonopolyOfGroup(unsigned groupID);
+    bool HasProperty(Property* prop);
     std::string GetName() const;
+    std::vector<Property*>& GetPropOwnedVtr();
     token GetToken() const;
+    void BuyProperty(Property* prop);
+    void MortgageProperty(Property* prop);
+    void BuyHouseOnProp(Property* prop);
+    void SellHouseOnProp(Property* prop);
+    
 private:
     int m_Balance;
     unsigned m_Railroads;
