@@ -22,7 +22,7 @@ public:
     token GetToken() const;
     void BuyProperty(Property* prop);
     void MortgageProperty(Property* prop);
-    void BuyHouseOnProp(Property* prop);
+    bool BuyHouseOnProp(Property* prop);
     void SellHouseOnProp(Property* prop);
     
 private:

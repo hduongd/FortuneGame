@@ -100,7 +100,7 @@ void GenericPlayer::MortgageProperty(Property* prop)
     m_Balance += prop->GetCost() / 2;
     prop->Mortgage();
 }
-void GenericPlayer::BuyHouseOnProp(Property* prop)
+bool GenericPlayer::BuyHouseOnProp(Property* prop)
 {
     unsigned groupID = prop->GetGroup();
     std::vector<Property*> group;
@@ -126,6 +126,9 @@ void GenericPlayer::BuyHouseOnProp(Property* prop)
         if (prop->GetNumberHouses() + 1 < min_houses + 2)
         {
             m_Balance -= prop->GetRentArray()[6];
+            prop->BuyHouse();
+            return true;
         }
     }
+    return false;
 }

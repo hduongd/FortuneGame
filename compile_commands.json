@@ -1,0 +1,74 @@
+[
+    {
+        "arguments": [
+            "clang++", 
+            "-c", 
+            "-Wall", 
+            "-Wextra", 
+            "-g", 
+            "src/ComputerPlayer.cpp"
+        ], 
+        "directory": "/home/harvey/Projects/FortuneGame", 
+        "file": "src/ComputerPlayer.cpp"
+    }, 
+    {
+        "arguments": [
+            "clang++", 
+            "-c", 
+            "-Wall", 
+            "-Wextra", 
+            "-g", 
+            "src/GenericPlayer.cpp"
+        ], 
+        "directory": "/home/harvey/Projects/FortuneGame", 
+        "file": "src/GenericPlayer.cpp"
+    }, 
+    {
+        "arguments": [
+            "clang++", 
+            "-c", 
+            "-Wall", 
+            "-Wextra", 
+            "-g", 
+            "src/Tile.cpp"
+        ], 
+        "directory": "/home/harvey/Projects/FortuneGame", 
+        "file": "src/Tile.cpp"
+    }, 
+    {
+        "arguments": [
+            "clang++", 
+            "-c", 
+            "-Wall", 
+            "-Wextra", 
+            "-g", 
+            "src/Board.cpp"
+        ], 
+        "directory": "/home/harvey/Projects/FortuneGame", 
+        "file": "src/Board.cpp"
+    }, 
+    {
+        "arguments": [
+            "clang++", 
+            "-c", 
+            "-Wall", 
+            "-Wextra", 
+            "-g", 
+            "src/Property.cpp"
+        ], 
+        "directory": "/home/harvey/Projects/FortuneGame", 
+        "file": "src/Property.cpp"
+    }, 
+    {
+        "arguments": [
+            "clang++", 
+            "-c", 
+            "-Wall", 
+            "-Wextra", 
+            "-g", 
+            "main.cpp"
+        ], 
+        "directory": "/home/harvey/Projects/FortuneGame", 
+        "file": "main.cpp"
+    }
+]
