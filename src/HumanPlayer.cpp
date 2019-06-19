@@ -7,12 +7,10 @@ HumanPlayer::HumanPlayer(std::string name, token t):
 
 HumanPlayer::~HumanPlayer() {}
 
-char HumanPlayer::PromptPurchase(Board& board)
+char HumanPlayer::PromptPurchase()
 {
-    Property* prop = dynamic_cast<Property*>(board.GetTileInPosition(GetPosition()));
     char opt;
-    std::cout << GetName() << ", (B)uy " << "[$" << prop->GetCost() << "]" << "or (A)uction property " << 
-        prop->GetName() << "? ";
+    std::cout << GetName() << ", (B)uy or (A)uction property ? ";
     std::cin >> opt;
 
     switch (opt)
@@ -28,7 +26,7 @@ char HumanPlayer::PromptPurchase(Board& board)
     }
 }
 
-char HumanPlayer::PromptAddtlAction(Board& board)
+char HumanPlayer::PromptAddtlAction()
 {
     char opt;
     do
@@ -37,42 +35,5 @@ char HumanPlayer::PromptAddtlAction(Board& board)
         std::cin >> opt;
     } while (opt != 'T' && opt != 't' && opt != 'V' && opt != 'v' && opt != 'O' && opt != 'o'
              && opt != 'N' && opt != 'n');
-    switch(opt)
-    {
-        case 'T':
-        case 't':
-            return 't';
-        case 'V':
-        case 'v':
-            {
-                unsigned number;
-
-                do
-                {
-                    std::cout << "Which property to view? (input # from 0-39): ";
-                    std::cin >> number;
-                } while (number > 39);
-
-                Tile* tile = board.GetTileInPosition(number);
-                Property* prop = dynamic_cast<Property*>(tile);
-
-                if (prop != NULL)
-                {
-                    std::cout << prop;
-                }
-                else
-                {
-                    std::cout << "Tile: " << tile->GetName() << std::endl;
-                }
-                break;
-            }
-        case 'O':
-        case 'o':
-            // TODO fill out this case
-            return 'x';
-        case 'N':
-        case 'n':
-            // TODO fill out this case
-            return 'n';
-    }
+    return opt;
 }

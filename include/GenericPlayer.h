@@ -6,7 +6,7 @@
 class GenericPlayer
 {
 public:
-    enum token {HASH, LETTER_O, DOLLAR, AMPERSAND, ZERO, AT, NONE};
+    enum token {HASH, LETTER_O, DOLLAR, AMPERSAND, X, AT, NONE};
 
     GenericPlayer(std::string name, token t);
     virtual ~GenericPlayer();
