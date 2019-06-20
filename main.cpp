@@ -1,7 +1,6 @@
 #include <iostream>
 #include <iomanip>
-#include "include/Property.h"
-#include "include/Board.h"
+#include "include/Game.h"
 
 using std::ostream;
 
@@ -9,16 +8,8 @@ ostream& operator<<(ostream& os, Property& prop);
 
 int main()
 {
-    Board gameBoard;
-    Tile* pTile = gameBoard.GetTileInPosition(1);
-    Tile* pTile2 = gameBoard.GetTileInPosition(3);
-    Property* pProp = static_cast<Property*>(pTile);
-    Property* pProp2 = static_cast<Property*>(pTile2);
-
-    pProp->Mortgage();
-
-    std::cout << *pProp << std::endl;
-    std::cout << *pProp2 << std::endl;
+    Game game;
+    game.Play();
     return 0;
 }
 
