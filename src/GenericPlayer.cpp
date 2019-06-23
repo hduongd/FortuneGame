@@ -48,9 +48,25 @@ std::string GenericPlayer::GetName() const
     return m_Name;
 }
 
-GenericPlayer::token GenericPlayer::GetToken() const
+char GenericPlayer::GetToken() const
 {
-    return m_Token;
+    switch (m_Token)
+    {
+        case TKN_X:
+            return 'X';
+        case TKN_AT:
+            return '@';
+        case TKN_HASH:
+            return '#';
+        case TKN_DOLLAR:
+            return '$';
+        case TKN_AMPERSAND:
+            return '&';
+        case TKN_LETTER_O:
+            return 'O';
+        default:
+            return ' ';
+    }
 }
 
 

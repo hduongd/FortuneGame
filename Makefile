@@ -19,7 +19,8 @@ ComputerPlayer.o : $(SRCDIR)/ComputerPlayer.cpp $(IDIR)/ComputerPlayer.h $(IDIR)
 	$(CXX) $(CXXFLAGS) -c $(SRCDIR)/ComputerPlayer.cpp
 HumanPlayer.o : $(SRCDIR)/HumanPlayer.cpp $(IDIR)/HumanPlayer.h $(IDIR)/GenericPlayer.h
 	$(CXX) $(CXXFLAGS) -c $(SRCDIR)/HumanPlayer.cpp
-Game.o : $(SRCDIR)/Game.cpp $(IDIR)/Game.h $(IDIR)/Board.h $(IDIR)/GenericPlayer.h
+Game.o : $(SRCDIR)/Game.cpp $(IDIR)/Game.h $(IDIR)/Board.h $(IDIR)/GenericPlayer.h $(IDIR)/ComputerPlayer.h \
+	$(IDIR)/HumanPlayer.h
 	$(CXX) $(CXXFLAGS) -c $(SRCDIR)/Game.cpp
 clean :
 	rm *.o

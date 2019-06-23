@@ -25,8 +25,6 @@ Game::~Game()
 
 unsigned Game::RollDice()
 {
-    std::cout << "Rolling the dice!\n";
-    
     unsigned die1 = rand() % 6 + 1;
     unsigned die2 = rand() % 6 + 1;
 
@@ -35,19 +33,20 @@ unsigned Game::RollDice()
 void Game::Play()
 {
     std::string name;
-    GenericPlayer::token t;
 
     // Initialize human players, ask for their name and preferred token (game piece)
+    std::vector<char> tokens_used;
+    char input;
     for (unsigned i = 0; i < m_NumPlayers; i++)
     {
         std::cout << "Player " << (i + 1) << ", what is your name? ";
         std::cin >> name;
 
-        char input;
-        std::vector<char> tokens_used;
-        bool token_in_use = true;
+        bool token_in_use;
+
         do
         {
+            token_in_use = false;
             std::cout << "Very well, " << name << ", what token would you like?\n\n";
             std::cout << "#, O, $, &, X, or @ ";
             std::cin >> input;
@@ -60,42 +59,46 @@ void Game::Play()
                     token_in_use = true;
                     break;
                 }
-                else if (iter == tokens_used.end())
-                {
-                    token_in_use = false;
-                }
             }
-        } while (token_in_use && (input != '#' && input != 'O' && input != '$' && input != '&' && input != 'X' && input != '@'));
+        } while (token_in_use || (input != '#' && input != 'O' && input != '$' && input != '&' && input != 'X' && input != '@'));
 
         switch (input)
         {
             case '#':
                 tokens_used.push_back('#');
-                t = GenericPlayer::TKN_HASH;
+                m_PlayerVtr.push_back(new HumanPlayer(name, GenericPlayer::TKN_HASH));
+                token_in_use = false;
                 break;
             case 'O':
                 tokens_used.push_back('O');
-                t = GenericPlayer::TKN_LETTER_O;
+                m_PlayerVtr.push_back(new HumanPlayer(name, GenericPlayer::TKN_LETTER_O));
+                token_in_use = false;
                 break;
             case '$':
                 tokens_used.push_back('$');
-                t = GenericPlayer::TKN_DOLLAR;
+                m_PlayerVtr.push_back(new HumanPlayer(name, GenericPlayer::TKN_DOLLAR));
+                token_in_use = false;
                 break;
             case '&':
                 tokens_used.push_back('&');
-                t = GenericPlayer::TKN_AMPERSAND;
+                m_PlayerVtr.push_back(new HumanPlayer(name, GenericPlayer::TKN_AMPERSAND));
+                token_in_use = false;
                 break;
             case 'X':
                 tokens_used.push_back('X');
-                t = GenericPlayer::TKN_X;
+                m_PlayerVtr.push_back(new HumanPlayer(name, GenericPlayer::TKN_X));
+                token_in_use = false;
                 break;
             case '@':
                 tokens_used.push_back('@');
-                t = GenericPlayer::TKN_AT;
+                m_PlayerVtr.push_back(new HumanPlayer(name, GenericPlayer::TKN_AT));
+                token_in_use = false;
                 break;
         }
-        m_PlayerVtr.push_back(new HumanPlayer(name, t));
     }
+
+    // Add a CPU
+    // m_PlayerVtr.push_back(new ComputerPlayer("CPU 1", GenericPlayer::TKN_LETTER_O));
 
     // Now that players have been initialized,
     // determine who goes first
@@ -108,12 +111,58 @@ void Game::Play()
     {
         std::cout << (*player)->GetName() << " is rolling!\n";
         unsigned result = RollDice();
-        std::cout << (*player)->GetName() << " rolled a " << result << std::endl;
+        std::cout << (*player)->GetName() << " rolled a " << result << std::endl << std::endl;
 
         if (result > highest_roll)
         {
+            highest_roll = result;
             highest_player = *player;
         }
     }
     std::cout << highest_player->GetName() << " rolled the highest!\n";
+
+    // Begin game loop
+    
+    unsigned num_active_players = m_NumPlayers;
+    while (num_active_players > 1)
+    {
+        for (auto iter = m_PlayerVtr.begin(); iter != m_PlayerVtr.end(); iter++)
+        {
+            HumanPlayer* current_player = dynamic_cast<HumanPlayer*>(*iter);
+            if (current_player != NULL)
+            {
+                std::cout << current_player->GetName() << ", press enter to roll!\n\n";
+                std::cin.get();
+
+                unsigned roll = RollDice();
+
+                std::cout << "You rolled " << roll << std::endl;
+                current_player->Move(roll);
+
+                Tile* current_tile = m_pGameBoard->GetTileInPosition(current_player->GetPosition());
+                Property* current_property = dynamic_cast<Property*>(current_tile);
+
+                std::cout << "\t\tYou have landed on " << current_tile->GetName() << std::endl;
+                if (current_property != NULL)
+                {
+                    std::cout << *current_property << std::endl;
+                }
+
+            }
+            else
+            {
+                std::cout << "This is a CPU.\n\n";
+            }
+
+        }
+        for (auto iter = m_PlayerVtr.begin(); iter != m_PlayerVtr.end(); iter++)
+        {
+            if ((*iter)->GetBalance() <= 0)
+            {
+                num_active_players--;
+            }
+        }
+
+    }
+    std::cout << "Game over!\n";
 }

@@ -5,6 +5,7 @@
 using std::ostream;
 
 ostream& operator<<(ostream& os, Property& prop);
+ostream& operator<<(ostream& os, GenericPlayer& player);
 
 int main()
 {
@@ -42,4 +43,45 @@ ostream& operator<<(ostream& os, Property& prop)
     os << std::setfill('#') << std::setw(80);
 
     return os;
+}
+ostream& operator<<(ostream& os, std::vector<GenericPlayer*>& player_vtr)
+{
+    std::string cell_20_30 = 
+        "----------------------------------\n"
+        "|  |  |  |  |  |  |  |  |  |  |  |\n"
+        "----------------------------------\n";
+    std::string cell_19_31 =
+        "|  |                          |  |\n"
+        "----                          ----\n"
+        "|  |                          |  |\n";
+    os << "----                          ----\n";
+    os << "|  |                          |  |\n";
+    os << "----                          ----\n";
+    os << "|  |                          |  |\n";
+    os << "----       -----------        ----\n";
+    os << "|  |       | FORTUNE |        |  |\n";
+    os << "----       -----------        ----\n";
+    os << "|  |                          |  |\n";
+    os << "----                          ----\n";
+    os << "|  |                          |  |\n";
+    os << "----                          ----\n";
+    os << "|  |                          |  |\n";
+    os << "----                          ----\n";
+    os << "|  |                      HD  |  |\n";
+    os << "----------------------------------\n";
+    os << "|  |  |  |  |  |  |  |  |  |  |  |\n";
+    os << "----------------------------------\n";
+
+    for (auto iter = player_vtr.begin(); iter != player_vtr.end(); iter++)
+    {
+        unsigned pos = (*iter)->GetPosition();
+        char token = (*iter)->GetToken();
+        switch (pos)
+        {
+            case 0:
+
+
+
+        }
+    }
 }

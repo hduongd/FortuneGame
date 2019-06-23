@@ -18,10 +18,10 @@
             "-Wall", 
             "-Wextra", 
             "-g", 
-            "src/GenericPlayer.cpp"
+            "src/Board.cpp"
         ], 
         "directory": "/home/harvey/Projects/FortuneGame", 
-        "file": "src/GenericPlayer.cpp"
+        "file": "src/Board.cpp"
     }, 
     {
         "arguments": [
@@ -54,10 +54,10 @@
             "-Wall", 
             "-Wextra", 
             "-g", 
-            "src/Board.cpp"
+            "src/GenericPlayer.cpp"
         ], 
         "directory": "/home/harvey/Projects/FortuneGame", 
-        "file": "src/Board.cpp"
+        "file": "src/GenericPlayer.cpp"
     }, 
     {
         "arguments": [

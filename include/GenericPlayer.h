@@ -17,7 +17,7 @@ public:
     void Move(int distance);
     bool HasProperty(Property* prop);
     std::vector<Property*>& GetPropOwnedVtr();
-    token GetToken() const;
+    char GetToken() const;
     
 private:
     int m_Balance;
